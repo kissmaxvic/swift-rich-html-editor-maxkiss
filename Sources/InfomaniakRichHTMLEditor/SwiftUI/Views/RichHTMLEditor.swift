@@ -35,11 +35,13 @@ public struct RichHTMLEditor: PlateformViewRepresentable {
     @Environment(\.handleLinkOpening) var handleLinkOpening
 
     @Binding public var html: String
+    @Binding public var manual_height: CGFloat
     @ObservedObject public var textAttributes: TextAttributes
 
-    public init(html: Binding<String>, textAttributes: TextAttributes) {
+    public init(html: Binding<String>, manual_height: Binding<String>, textAttributes: TextAttributes) {
         _html = html
         _textAttributes = ObservedObject(wrappedValue: textAttributes)
+        _manual_height = manual_height
     }
 
     // MARK: - Platform functions
@@ -48,6 +50,7 @@ public struct RichHTMLEditor: PlateformViewRepresentable {
         let richHTMLEditorView = RichHTMLEditorView()
         richHTMLEditorView.delegate = context.coordinator
         richHTMLEditorView.html = html
+        richHTMLEditorView.manual_height = manual_height
 
         if let css = editorCSS {
             richHTMLEditorView.injectAdditionalCSS(css)
@@ -62,6 +65,10 @@ public struct RichHTMLEditor: PlateformViewRepresentable {
     private func updatePlatformView(_ richHTMLEditorView: RichHTMLEditorView) {
         if richHTMLEditorView.html != html {
             richHTMLEditorView.html = html
+        }
+
+        if richHTMLEditorView.manual_height != manual_height {
+            richHTMLEditorView.manual_height = manual_height
         }
 
         #if canImport(UIKit)
