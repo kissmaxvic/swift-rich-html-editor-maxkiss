@@ -58,6 +58,10 @@ public class RichHTMLEditorView: PlatformView {
         }
         set {
             setHeightManual(newValue)
+            rawContentHeight = newValue
+            DispatchQueue.main.async {
+                self.delegate?.contentHeightDidUpdate(newValue)
+            }
         }
     }
 
