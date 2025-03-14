@@ -73,6 +73,9 @@ final class ScriptMessageHandler: NSObject, WKScriptMessageHandler {
         guard let height = message.body as? CGFloat else {
             return
         }
+        print("height from handler: \(height)")
+        print("body from handler (without body): \(message)")
+        print("body from handler (body): \(message.body)")
         delegate?.contentHeightDidChange(height)
     }
 
