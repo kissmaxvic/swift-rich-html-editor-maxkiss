@@ -333,8 +333,6 @@ extension RichHTMLEditorView: ScriptMessageHandlerDelegate {
         print("height change: \(contentHeight)")
         rawContentHeight = contentHeight
         invalidateIntrinsicContentSize()
-        setNeedsLayout()
-        layoutIfNeeded()
     }
 
     func selectedTextAttributesDidChange(_ selectedTextAttributes: UITextAttributes?) {
