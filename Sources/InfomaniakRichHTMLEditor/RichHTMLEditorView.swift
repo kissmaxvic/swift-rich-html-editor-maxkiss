@@ -52,7 +52,7 @@ public class RichHTMLEditorView: PlatformView {
     }
 
     // manual height
-    public var height_manual: CGFloat {
+    public var manual_height: CGFloat {
         get {
             return rawContentHeight
         }
@@ -346,7 +346,7 @@ extension RichHTMLEditorView: ScriptMessageHandlerDelegate {
         // отслеживаем как изменяется высота
         print("height change: \(contentHeight)")
         rawContentHeight = contentHeight
-        invalidateIntrinsicContentSize()
+        manual_height = contentHeight
     }
 
     func selectedTextAttributesDidChange(_ selectedTextAttributes: UITextAttributes?) {
