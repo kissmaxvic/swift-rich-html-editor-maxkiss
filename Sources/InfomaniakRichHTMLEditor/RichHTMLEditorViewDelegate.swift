@@ -66,6 +66,7 @@ public protocol RichHTMLEditorViewDelegate: AnyObject {
         selectedTextAttributesDidChange textAttributes: UITextAttributes
     )
 
+    func contentHeightDidUpdate(_ height: CGFloat)
     /// Tells the delegate when a JavaScript function executed in the specified editor has failed.
     ///
     /// When the editor calls a JavaScript to update the content, the CSS, or format the text, an
