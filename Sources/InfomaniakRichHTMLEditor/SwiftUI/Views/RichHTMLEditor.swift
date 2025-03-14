@@ -38,7 +38,7 @@ public struct RichHTMLEditor: PlateformViewRepresentable {
     @Binding public var manual_height: CGFloat
     @ObservedObject public var textAttributes: TextAttributes
 
-    public init(html: Binding<String>, manual_height: Binding<String>, textAttributes: TextAttributes) {
+    public init(html: Binding<String>, manual_height: Binding<CGFloat>, textAttributes: TextAttributes) {
         _html = html
         _textAttributes = ObservedObject(wrappedValue: textAttributes)
         _manual_height = manual_height
