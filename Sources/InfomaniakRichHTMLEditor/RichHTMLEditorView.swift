@@ -51,6 +51,16 @@ public class RichHTMLEditorView: PlatformView {
         }
     }
 
+    // manual height
+    public var height_manual: CGFloat {
+        get {
+            return rawContentHeight
+        }
+        set {
+            setHeightManual(newValue)
+        }
+    }
+
     #if canImport(UIKit)
     /// A Boolean value that indicates whether the responder accepts first responder status.
     override public var canBecomeFirstResponder: Bool {
@@ -267,6 +277,10 @@ public extension RichHTMLEditorView {
 
     private func setHTMLContent(_ newContent: String) {
         javaScriptManager.setHTMLContent(newContent)
+    }
+
+    private func setHeightManual(_ newContent: CGFloat) {
+        self.rawContentHeight = newContent
     }
 
     #if canImport(UIKit)
