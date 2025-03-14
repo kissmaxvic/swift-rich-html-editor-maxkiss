@@ -329,6 +329,8 @@ extension RichHTMLEditorView: ScriptMessageHandlerDelegate {
     }
 
     func contentHeightDidChange(_ contentHeight: CGFloat) {
+        // отслеживаем как изменяется высота
+        print("height change: \(contentHeight)")
         rawContentHeight = contentHeight
         invalidateIntrinsicContentSize()
     }
